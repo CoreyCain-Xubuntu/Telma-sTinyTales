@@ -1,198 +1,162 @@
+// Function to display daily pet care tip
+function displayTip() {
+    const today = new Date();
+    const day = today.getDay();
+    const dailyTip = getDailyTip(day);
 
-/* PURPOSE OF SCRIPT - I have added the following script that uses a series of "if and else-if" statements to generate a pet care tip based on the current day. 
-This will function as a clickable button available on every page. When clicked the button will populate a daily tip based on the day of the week. 
-When clicked again, the tip will dissapear so that the visual integrity of the webpage remains intact. I have added "tipText", "tipBox", and "telmaTip" into the HTMl 
-of every page as div sections and a button respectively. I have also added the script to the head of each page to defer load "ttt.js"  */
-
-/* By assigning "telmaTip" as a button in HTML I can then add an Event Listener assigned to "telmaTip". This Event Listener will initiate the if and else-if statements 
-if the button is clicked. */
-document.getElementById('telmaTip').addEventListener('click', function displayTip() {
-
-    /* By using built in javascript functions I can use new Date() to assign todays date to a variable called "today".
-    I can then use today.getDay() to assign the variable called "day" as an integer based on the information that Date() assigns to "today".
-    Declaring the variable "dailyTip" as an empty string ensures that a message can be populated based on the "day" variable. */
-    var today = new Date();
-    var day = today.getDay();
-    var dailyTip = "";
-
-    /* The following swith statement cycles thru the number assigned to "day" and display a message based on the matching number. */
-    switch (day) {
-    case 0:
-        dailyTip = "Always make sure your pet has clean water. Remember to check and fill their water bowl every day.";
-        break;
-    case 1:
-        dailyTip = "Stick to a regular feeding schedule for your pet. It's important not to give them too much food.";
-        break;
-    case 2:
-        dailyTip = "Spend time with your pet each day, whether it's playing fetch or just hanging out.";
-        break;
-    case 3:
-        dailyTip = "Show your pet some love by grooming them. Brush their fur and keep them clean.";
-        break;
-    case 4:
-        dailyTip = "Keep your home safe for your pet. Make sure things like toys or foods that can hurt them are out of reach.";
-        break;
-    case 5:
-        dailyTip = "Visit the vet regularly to make sure your pet is healthy. Vets help keep our pets happy and well.";
-        break;
-    case 6:
-        dailyTip = "If your pet goes outside, put a tag on their collar. It's like a name tag that keeps them safe.";
-        break;
-    default:
-        dailyTip = "Always remember to show love and patience to your pet. They are a part of your family. ";
-}
-
-    /* The message assigned to "dailyTip" is added to the webpage using "tipText" as the ID in the HTML.
-    The "tipBox" ID is being used in HTML to display the text box on the page.*/
     document.getElementById('tipText').innerHTML = dailyTip;
     document.getElementById('tipBox').style.display = 'flex';
-});
+}
 
-/* By adding an Event Listener that is tied to "tipText" I can run closeTip() when the "tipText" box is clicked.
-The "tipBox" ID is being used in HTML to delete the text box on the page*/
-document.getElementById('tipText').addEventListener('click', function closeTip() {
+// Helper function to get daily tip based on day
+function getDailyTip(day) {
+    switch (day) {
+        case 0:
+            return "Always make sure your pet has clean water. Remember to check and fill their water bowl every day.";
+        case 1:
+            return "Stick to a regular feeding schedule for your pet. It's important not to give them too much food.";
+        case 2:
+            return "Spend time with your pet each day, whether it's playing fetch or just hanging out.";
+        case 3:
+            return "Show your pet some love by grooming them. Brush their fur and keep them clean.";
+        case 4:
+            return "Keep your home safe for your pet. Make sure things like toys or foods that can hurt them are out of reach.";
+        case 5:
+            return "Visit the vet regularly to make sure your pet is healthy. Vets help keep our pets happy and well.";
+        case 6:
+            return "If your pet goes outside, put a tag on their collar. It's like a name tag that keeps them safe.";
+        default:
+            return "Always remember to show love and patience to your pet. They are a part of your family.";
+    }
+}
+
+// Event listener for displaying daily tip
+document.getElementById('telmaTip').addEventListener('click', displayTip);
+
+// Event listener for closing tip box
+document.getElementById('tipText').addEventListener('click', () => {
     document.getElementById('tipBox').style.display = 'none';
 });
 
-/*------------------------------------------------FORM VALIDATION------------------------------------------------*/
+// DOM elements
+const userName = document.getElementById("myName");
+const userEmail = document.getElementById("myEmail");
+const userComments = document.getElementById("myComments");
+const userZIP = document.getElementById('myzipCode');
+const errorMessage = document.getElementById("error");
+const verificationResult = document.getElementById('verificationResult');
 
-/* PURPOSE OF SCRIPT - To enforce form validation using javascript. This will ensure that the required fields in the form match a certain format.
- When the submit button is clicked, a try-catch statement will run the verifyForm function. This function will use a series of "if and else-if" 
- statements to test each field for the correct format provided. If all of the fields match the provided format, the form is submitted.
- If any field does not match the provided format, the function will throw an error message based on the invalid field and the form will not be submitted.   */
+// Regular expressions for validation
+const nameFormat = /^[a-zA-Z ,.'-]+$/;
+const emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const validEmailRegex = /@.*\bgoogle\b/i;
 
-/* By declaring the following variables, I can use the assigned HTML elements in javascript. */
-let submit = document.getElementById("submit");
-let userName = document.getElementById("myName");
-let userEmail = document.getElementById("myEmail");
-let userComments = document.getElementById("myComments");
-let errorMessage = document.getElementById("error");
-
-let userZIP = document.getElementById('myzipCode');                       /* NEW ADDITION CASE PROJECT 7 - Added the 'userZIP' variable using the HTML element ID. */
-let verificationResult = document.getElementById('verificationResult'); /* NEW ADDITION CASE PROJECT 7 - Added the 'verificationResult' variable using the HTML element ID. */
-
-/* By declaring the following variables as regular expressions (regex), for name and email validation, I can choose a format that must be matched by the user. */
-let nameFormat = /^[a-zA-Z ,.'-]+$/;
-let emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-let validEmail = /@.*\bgoogle\b/i; /* Declared this variable as a regular expression (regex) to match a keyword regardless of case type. */
-
-/*  This function uses a series of "if and else-if" statements to validate the values of the userName and userEmail variables against nameFormat
-   and emailFormat, respectively. It throws an error message if they do not match the expected formats. Additionally, it checks if userComments is
-   blank and throws an error message if true. */
+// Function to validate form inputs
 function verifyForm() {
-    if (!nameFormat.test(userName.value)) {
-        throw "Please enter a valid name.";
-
-    } else if (!verifyZIP()) {                   /* NEW ADDITION - CASE PROJECT 7 - Added an 'else-if' statement to handle the error if verifyZIP() returns false. */
-        throw "Please enter a valid ZIP code."
-    }
-    else if (!emailFormat.test(userEmail.value)) {
-        throw "Please enter a valid email.";
-        // } else if (validEmail.test(userEmail.value)) { /* Instead of creating a new function to validate the email, I added it to the existing verifyForm() function. */
-        //     throw "Email cannot be a google account."; /* This would simplify the code and achieve the same outcome. */
-    } else if (userComments.value === "") {
-        throw "Please add a comment.";
-
-    }
+    validateName();
+    validateZIP();
+    validateEmail();
+    validateComments();
 }
-function verifyEmail() { /* This function uses an "if" statement to validate the value of the userName variable against the 'validEmail' regex variable. */
-    if (validEmail.test(userEmail.value)) { /*It throws an error message if it matches the expected format. */
-        throw "Email cannot be a google account.";
+
+// Function to validate name
+function validateName() {
+    if (!nameFormat.test(userName.value.trim())) {
+        throw new Error("Please enter your name.");
     }
 }
 
-/*------------------------------------------------NEW ADDITION - CASE PROJECT 7------------------------------------------------*/
+// Function to validate ZIP code
+function validateZIP() {
+    if (userZIP.value.trim().length < 5) {
+        throw new Error("ZIP code must be at least 5 digits.");
+    }
 
-function verifyZIP() {  /* This function uses an "if-else" statement to validate the userZIP variable using an API. */
+    const xhr = new XMLHttpRequest();
+    const url = `https://api.zippopotam.us/US/${userZIP.value.trim()}`;
 
-    if (userZIP.value.length >= 5) { /* Checks that the 'userZIP' variable is at least 5 numbers long. */
+    xhr.open('GET', url, false);
+    xhr.send();
 
-        const xhr = new XMLHttpRequest(); /* Created the constant 'xhr' as a new XMLHttpRequest object. */
-
-        const url = `https://api.zippopotam.us/US/${userZIP.value}`; /* Created the constant 'url' as the URL for the API that will use the 'userZIP' value for validation. */
-
-        xhr.open('GET', url, true); /* Used the open() method to 'GET' a request from the 'url' constant. The third parameter of 'true' signals an asynchronous request. */
-
-        xhr.onreadystatechange = function () { /* Added an event listener to 'xhr' that runs an anonymous function when the 'readyState' is changed. */
-
-            if (xhr.readyState === 4 && xhr.status === 200) { /* Created an 'if-else' statement that checks if the XMLHttpRequest is complete(4) and successful(200). */
-
-                verificationResult.innerHTML = 'ZIP code validated.'; /* If the request is complete and successful then 'verificationResult' text is changed. */
-            }
-        };
-        xhr.send(); /* If the request is complete and successful then the 'xhr' variable request is sent to the server. */
-
-        return true; /* If the request is complete and successful then the validation is true. */
-
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        verificationResult.innerHTML = "";
     } else {
-        verificationResult.innerHTML = 'ZIP code must be 5 numbers and valid.'; /* Else if the request is not complete and successful then 'verificationResult' text is changed. */
-
-        return false; /* If the request is not complete and successful then the validation is false. */
+        verificationResult.innerHTML = 'ZIP code must be 5 numbers and valid.';
+        throw new Error("Failed to validate ZIP code.");
     }
 }
 
+// Function to validate email
+function validateEmail() {
+    if (!emailFormat.test(userEmail.value.trim())) {
+        throw new Error("Please enter a valid email.");
+    } else if (validEmailRegex.test(userEmail.value.trim())) {
+        throw new Error("Email cannot be a Google account.");
+    }
+}
 
-/* The eventListener has been added to run a try-catch statement when the submit button is clicked. It will run the verifyEmail(), verifyForm(), and VerifyZIP() functions and will submit the form 
-if no errors are thrown. If an error is thrown, the error message will appear above the form and the form will not be submitted. */
-document.getElementById('submitButton').addEventListener('click', async function (event) {
+// Function to validate comments
+function validateComments() {
+    if (userComments.value.trim() === "") {
+        throw new Error("Please add a comment.");
+    }
+}
+
+// Event listener for form submission
+document.getElementById('submitButton').addEventListener('click', function(event) {
     try {
-        verifyZIP(); /* NEW ADDITION - CASE PROJECT 7 */ /* Added the 'verifyZIP() function to the try-catch statement. */
-        verifyEmail();
         verifyForm();
-
-
-    } catch (error) {
-        let errorMessage = document.getElementById("error");
-        errorMessage.innerText = error;
+        } catch (error) {
+        errorMessage.innerText = error.message;
         event.preventDefault();
     }
 });
 
-/*------------------------------------------------GOOGLE API------------------------------------------------*/
-
-/* PURPOSE OF SCRIPT - To initialize a map using Google Maps API, display the user's current position, 
-    and update the map and information when the user's geolocation is obtained. */
-
-function initMap() { /* This function initializes the map. */
-
-    let displayMap = document.getElementById("map"); /* Sets the 'displayMap' variable to the HTML 'map' element. */
-
-    let telmasPlace = { lat: 35.18872063314348, lng: -101.84683965689786 }; /* Sets the 'telmasPlace variable with the initial starting location. */
-
-    let myMap = new google.maps.Map(displayMap, { /* Sets the 'myMap' variable as a new Google map using 'telmasPlace' as the center point with an initial zoom and fullscreenControl disabled. */
+// Initialize map
+function initMap() {
+    const mapElement = document.getElementById("map");
+    const initialCoords = { lat: 35.18872063314348, lng: -101.84683965689786 };  
+    const map = new google.maps.Map(mapElement, {
         zoom: 9,
-        center: telmasPlace,
+        center: initialCoords,
         fullscreenControl: false
     });
 
-    let marker = new google.maps.Marker({ /* Sets the 'marker' variable as a new Google map marker using 'telmasPlace' as the position on 'myMap' with a customizable title. */
-        position: telmasPlace,
-        map: myMap,
+    // Initialize marker
+    const marker = new google.maps.Marker({
+        position: initialCoords,
+        map: map,
         title: "Your current position"
     });
 
-    navigator.geolocation.getCurrentPosition(getPos, handleError); /* Gets the current location using the getCurrentposition() method. This will also run the 'handleError' function if any errors occur. */
+    // Get user's current position
+    function getUserPosition() {
+        return new Promise((resolve, reject) => {
+            navigator.geolocation.getCurrentPosition(resolve, reject);
+        });
+    }
 
-    function getPos(pos) { /* This function retrieves the users poistion. */
+    // Update map and marker with user's position
+    async function updateMapWithUserPosition() {
+        try {
+            const position = await getUserPosition();
+            const { latitude, longitude, altitude } = position.coords;
 
-        let myPosition = { /* Sets the 'myPosition' variable using 'lat', 'lng', and 'alt' as the attributes. */
-            lat: pos.coords.latitude,
-            lng: pos.coords.longitude,
-            alt: pos.coords.altitude,
+            // Update map center and marker position
+            map.setCenter({ lat: latitude, lng: longitude });
+            marker.setPosition({ lat: latitude, lng: longitude });
+
+            // Update UI elements with coordinates
+            document.getElementById("latitude").textContent = `  ${latitude}`;
+            document.getElementById("longitude").textContent = `  ${longitude}`;
+            document.getElementById("altitude").textContent = `  ${altitude}`;
+        } catch (error) {
+            console.error("Error getting user position:", error);
         }
-
-        myMap.setCenter({ lat: myPosition.lat, lng: myPosition.lng }); /* Updates the 'myMap' variable to set the users location as the center of the map using the setCenter() method. */
-        marker.setPosition({ lat: myPosition.lat, lng: myPosition.lng }); /* Updates the 'marker' variable to set the users location as a marker on the map using the setPosition() method. */
-
-        document.getElementById("latitude").textContent = "  " + myPosition.lat; /* Updates the 'latitude', 'longitude' and 'altitude' HTML elements to show the users location on the webpage. */
-        document.getElementById("longitude").textContent = "  " + myPosition.lng;
-        document.getElementById("altitude").textContent = "  " + myPosition.alt;
     }
 
-    function handleError(err) { /* This function will handle any geolocation errors and display them to the console. */
-        console.log("Geolocation error: " + err.message);
-    }
+    // Call updateMapWithUserPosition on init
+    updateMapWithUserPosition();
 }
 
 
