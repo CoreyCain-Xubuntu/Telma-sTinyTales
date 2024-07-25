@@ -15,22 +15,32 @@ document.getElementById('telmaTip').addEventListener('click', function displayTi
     var day = today.getDay();
     var dailyTip = "";
 
-    /* The following if and else-if statements cycle thru the number assigned to "day" and display a message based on the matching number. */
-    if (day === 0) {
+    /* The following swith statement cycles thru the number assigned to "day" and display a message based on the matching number. */
+    switch (day) {
+    case 0:
         dailyTip = "Always make sure your pet has clean water. Remember to check and fill their water bowl every day.";
-    } else if (day === 1) {
+        break;
+    case 1:
         dailyTip = "Stick to a regular feeding schedule for your pet. It's important not to give them too much food.";
-    } else if (day === 2) {
+        break;
+    case 2:
         dailyTip = "Spend time with your pet each day, whether it's playing fetch or just hanging out.";
-    } else if (day === 3) {
+        break;
+    case 3:
         dailyTip = "Show your pet some love by grooming them. Brush their fur and keep them clean.";
-    } else if (day === 4) {
+        break;
+    case 4:
         dailyTip = "Keep your home safe for your pet. Make sure things like toys or foods that can hurt them are out of reach.";
-    } else if (day === 5) {
+        break;
+    case 5:
         dailyTip = "Visit the vet regularly to make sure your pet is healthy. Vets help keep our pets happy and well.";
-    } else if (day === 6) {
+        break;
+    case 6:
         dailyTip = "If your pet goes outside, put a tag on their collar. It's like a name tag that keeps them safe.";
-    }
+        break;
+    default:
+        dailyTip = "Always remember to show love and patience to your pet. They are a part of your family. ";
+}
 
     /* The message assigned to "dailyTip" is added to the webpage using "tipText" as the ID in the HTML.
     The "tipBox" ID is being used in HTML to display the text box on the page.*/
