@@ -1,0 +1,632 @@
+.wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
+    font-size: 50px;
+}
+
+.wrapper>* {
+    padding: 20px;
+    margin: 5px;
+    flex: 100%;
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 100%;
+}
+
+/*------------------------------------HEADER SECTION----------------------------------------*/
+
+/* page header (picture element) */
+.header {
+    height: 100px;
+    background-image: url(../images/icon.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 260px;
+    cursor: pointer;
+    margin-bottom: -30px;
+    box-shadow: 0 10px 20px #000;
+    background-color: #fafafa;
+    border-radius: 10px;
+}
+
+/* page header (link decoration element) */
+.header h1 {
+    color: #1560db;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    text-shadow: 0 5px 6px #000;
+    text-align: left;
+    margin-top: -5px;
+}
+
+/* page header hover style */
+.header h1:hover {
+    color: #ffef00;
+    transform: scale(1.02);
+}
+
+/* page header (link text decoration element) */
+.header a {
+    text-decoration: none;
+}
+
+/*------------------------------------MAIN SECTIION----------------------------------------*/
+
+/* center of the page */
+.main {
+    background-color: #ffef00;
+    font-size: 50px;
+    max-width: 100%;
+    border-radius: 10px;
+    border: 5px solid #fafafa;
+}
+
+/* center of the page (text element) */
+h2 {
+    line-height: 70px;
+    font-size: 200%;
+    min-height: 290px;
+    max-width: 100%;
+    text-align: center;
+    color: #1560db;
+    text-shadow: 0 1px 5px #777;
+    margin-bottom: -200px;
+    margin-top: 10px;
+}
+
+/* center of the page (subtext element) */
+p {
+    line-height: 50px;
+    font-size: 100%;
+    max-width: 100%;
+    text-align: center;
+    color: #1560db;
+    text-shadow: 0 1px 5px #777;
+}
+
+/*------------------------------------FOOTER SECTIION----------------------------------------*/
+
+/* footer at bottom of the page */
+#footer {
+    background-image: linear-gradient(#fafafa, #fafafa, #1560db);
+    border-radius: 10px;
+    margin-bottom: -25px;
+}
+
+/* footer at bottom of the page (text element) */
+h5 {
+    text-align: center;
+    color: #1560db;
+    font-size: 15px;
+    margin-top: -20px;
+}
+
+/*------------------------------------ASIDE SECTIION----------------------------------------*/
+
+/* box structure for icons */
+.aside {
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: row;
+    background-color: #fafafa;
+    margin-top: 40px;
+}
+
+/* aside (text element) */
+h3 {
+    text-align: left;
+    text-shadow: 2px 2px 2px #000;
+    color: #fafafa;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+/* hover effect for icons */
+.aside a:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 1);
+}
+
+/* additional transition hover effect for icons */
+.aside a {
+    display: block;
+    position: relative;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+/* Kitten Corner icon */
+.aside1 {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    cursor: pointer;
+    background-image: url(../images/kittenIcon.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 45%;
+    text-align: center;
+    background-color: #ff033e;
+    border: 5px solid #000;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+/* Puppy Pals icon */
+.aside2 {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    cursor: pointer;
+    background-image: url(../images/puppyIcon.jpg);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 45%;
+    text-align: center;
+    background-color: #1560db;
+    border: 5px solid #000;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+/* Petcare Tips icon */
+.aside3 {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    cursor: pointer;
+    background-image: url(../images/careIcon.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 35%;
+    text-align: center;
+    background-color: #ff033e;
+    border: 5px solid #000;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+/* Telma's Links icon */
+.aside4 {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    cursor: pointer;
+    background-image: url(../images/linkIcon.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 32%;
+    text-align: center;
+    background-color: #1560db;
+    border: 5px solid #000;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+/* Telma's Pics icon */
+.aside5 {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    cursor: pointer;
+    background-image: url(../images/photoIcon.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 50%;
+    text-align: center;
+    background-color: #ff033e;
+    border: 5px solid #000;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+/* Telma Talk icon */
+.aside6 {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    cursor: pointer;
+    background-image: url(../images/talkIcon.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 33%;
+    text-align: center;
+    background-color: #1560db;
+    border: 5px solid #000;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+/*------------------------------------CARE SECTIION----------------------------------------*/
+
+/* list style (care.html) */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* text (care.html) */
+li {
+    display: flex;
+    align-items: center;
+    font-size: 50%;
+    color: #1560db;
+    text-shadow: 0 1px 5px #777;
+}
+
+/* space between care tip bold and rest of the text (test of using CSS vs HTML for text spacing) */
+.caretips {
+    margin-right: 10px;
+}
+
+/* icons (care.html) */
+.thumbnail2 {
+    margin: 5px;
+    border: 5px solid #000;
+    border-radius: 20px;
+    width: 20vh;
+    height: 20vh;
+}
+
+/*------------------------------------PUPPIES KITTENS SECTIION----------------------------------------*/
+
+/* pet pictures (puppy.html and kitten.html) */
+.thumbnail3 {
+    margin: 5px;
+    border: 5px solid #000;
+    border-radius: 20px;
+    width: 25%;
+    min-height: 125px;
+}
+
+/*------------------------------------GALLERY SECTIION----------------------------------------*/
+
+/* gallery box display */
+#gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* thumbnail hover style (gallery) */
+.thumbnail:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px #000;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* thumbnail style (gallery) */
+.thumbnail {
+    margin: 1em;
+    box-shadow: 10px 10px 10px #777;
+    border: 5px solid #fff;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+/* clicked image background style (gallery) */
+#modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+/* clicked image style (gallery) */
+#modalImage {
+    width: 80vh;
+    max-height: 75vh;
+    border: 15px solid #fff;
+    border-bottom: 125px solid #fafafa;
+    border-radius: 4px;
+    box-shadow: 10px 10px 10px #777;
+}
+
+/*------------------------------------LINKS SECTIION----------------------------------------*/
+
+/* table element (links) */
+
+table {
+    margin: 1em;
+    border-spacing: 0;
+    box-shadow: 10px 10px 10px #777;
+    text-shadow: 0 1px 5px #777;
+    font-size: 70%;
+    text-align: center;
+}
+
+/* table header elements (links) */
+tr,
+td,
+th {
+    border: solid 2px #000;
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+
+
+}
+
+/* table style alternating colors (links) */
+tr:nth-of-type(even) {
+    background-color: #fafafa;
+
+}
+
+tr:first-of-type {
+    background-color: #1560db;
+    color: #fafafa;
+
+}
+
+/*------------------------------------CONTACT SECTIION----------------------------------------*/
+
+
+#tipBox {
+    display: none;
+    position: fixed;
+    margin: 1em;
+    border-spacing: 0;
+    box-shadow: 10px 10px 10px #777;
+    text-shadow: 0 1px 5px #777;
+    font-size: 70%;
+    text-align: center;
+}
+
+#tipText {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#telmaTip {
+    width: 15%;
+    height: 50%;
+    display: flex;
+    cursor: pointer;
+    text-align: center;
+    background-color: #ff033e;
+    border: 5px solid #000;
+    border-radius: 10px;
+    text-shadow: 2px 2px 2px #000;
+    font-size: x-large;
+    color: #fafafa;
+}
+
+/*------------------------------------FORM SECTION----------------------------------------*/
+
+@supports (display: grid) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    form {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: 10em 1fr;
+        grid-gap: 0.5em;
+        font-family: Arial, sans-serif;
+        min-width: 25em;
+        width: 50%;
+        position: relative;
+    }
+
+    input[type="submit"] {
+        grid-column: 2 / 3;
+        width: 51%;
+        /* Adjust as needed */
+        margin: 0;
+        box-shadow: 0 10px 20px #000;
+    }
+}
+
+/* form element (contact) */
+form {
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 50%;
+    /* Adjust as needed */
+    position: relative;
+    margin-bottom: 1em;
+}
+
+/* form element (contact) */
+label {
+    display: inline-block;
+    width: auto;
+    /* Adjust as needed */
+    text-align: center;
+    color: #1560db;
+    text-shadow: 0 1px 5px #777;
+}
+
+/* form element (contact) */
+input,
+textarea {
+    display: inline-block;
+    width: 50%;
+    /* Adjust as needed */
+    font-size: 50%;
+    /* Adjust as needed */
+    box-shadow: 0 10px 20px #000;
+}
+
+/* form element (error message) */
+#error, #verificationResult {
+    color: red;
+    padding: 8px;
+    margin-top: 10px;
+    font-weight: bold;
+    /* Added for emphasis */
+}
+
+/*------------------------------------GOOGLE API MAP SECTION----------------------------------------*/
+.map {
+    grid-column: 2 / 3;
+
+}
+
+#map {
+    width: 7em;
+    height: 5.5em;
+    margin-left: -6em;
+    margin-bottom: .5em;
+    border: 3px solid gray;
+    box-shadow: 0 10px 20px #000;
+}
+
+h4 {
+    text-align: left;
+    text-shadow: 2px 2px 2px #000;
+    color: #fafafa;
+    font-size: 20px;
+    margin: 0;
+
+}
+
+.info-container {
+    padding-bottom: 0;
+    padding-left: 19em;
+    margin-bottom: -1em;
+    gap: 10px;
+}
+
+/*------------------------------------MEDIA QUERY SECTIION----------------------------------------*/
+
+/* Media query for larger screens */
+@media (min-width: 1440px) {
+    header {
+        background-size: 100px;
+        text-align: center;
+    }
+
+    .header h1 {
+        font-size: 180%;
+        text-align: center;
+        padding-right: 50px;
+    }
+
+    h3 {
+        font-size: 25px;
+        flex-direction: column;
+    }
+
+    .main {
+        min-height: 75vh;
+        font-size: 300%;
+        justify-content: space-around;
+    }
+}
+
+/* Media query for medium screens */
+@media (max-width: 800px) {
+
+    .header {
+        background-size: 30%;
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 18px;
+        margin-top: 1px;
+        margin-left: 1px;
+        text-align: center;
+    }
+
+    .main {
+        min-height: 75vh;
+        font-size: 150%;
+        justify-content: space-around;
+    }
+
+    .header h1 {
+        font-size: 65%;
+        margin-top: 30px;
+        text-align: left;
+        text-shadow: 0 3px 6px #000;
+    }
+
+    .aside1 {
+        background-position: bottom;
+        background-size: 55%;
+    }
+
+    .aside2 {
+        background-position: bottom;
+        background-size: 55%;
+    }
+
+    .aside3 {
+        background-position: bottom;
+        background-size: 50%;
+    }
+
+    .aside4 {
+        background-position: bottom;
+        background-size: 49%;
+    }
+
+    .aside5 {
+        background-position: bottom;
+        background-size: 60%;
+    }
+
+    .aside6 {
+        background-position: bottom;
+        background-size: 55%;
+    }
+
+    p {
+        padding-top: 20px;
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        font-size: 70%;
+        color: #1560db;
+        text-shadow: 0 1px 5px #777;
+
+    }
+}
+
+/* Media query for small screens */
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 80%;
+        text-align: left;
+    }
+
+    .header {
+        background-size: 30%;
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    h5 {
+        font-size: 10px;
+    }
+
+    .main {
+        min-height: 75vh;
+        font-size: 150%;
+    }
+
+    p {
+        padding-top: 20px;
+    }
+
+    .thumbnail2 {
+        margin: 5px;
+        border: 5px solid #000;
+        border-radius: 20px;
+        width: 25%;
+        height: 25%;
+    }
+}

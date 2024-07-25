@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Telma's Tiny Tails</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Welcome to Telma's Tiny Tails! A kid-friendly place 
+    for pet adoption information and basic animal care tips. Explore uplifting pet adoption stories with Telma and friends!">
+    <link rel="stylesheet" href="./stylesheet/style.css">
+    <script src="tttjs.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdAaWlTrXFFkVaF5KxydhChfhXMYA4wXE&callback=initMap"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <a href="./index.html">
+                <h1>TELMA'S TINY TAILS</h1>
+            </a>
+        </header>
+    </div>
+    <div class="aside">
+        <a href="./kittens.html" class="aside1">
+            <h3>Kitten Corner</h3>
+        </a>
+        <a href="./puppies.html" class="aside2">
+            <h3>Puppy Pals</h3>
+        </a>
+        <a href="./care.html" class="aside3">
+            <h3>Petcare Tips</h3>
+        </a>
+        <a href="./links.html" class="aside4">
+            <h3>Telma's Links</h3>
+        </a>
+        <a href="./gallery.html" class="aside5">
+            <h3>Telma's Pics</h3>
+        </a>
+        <a href="./contact2.html" class="aside6">
+            <h3>Telma Talk</h3>
+        </a>
+    </div>
+
+    <main>
+        <div class="main">
+            <button id="telmaTip">Telma's Care Tip for Today</button>
+            <div id="tipBox">
+                <div id="tipText"></div>
+            </div>
+            <h2>Telma Talk</h2>
+
+            <p>
+                Telma would love to hear about your tiny friends!<br><br>
+                Please send her a message using the form below.
+            </p>
+
+
+            <div id="error"></div>
+            <div id="verificationResult"></div>
+            <div class="info-container">
+                <h4>Latitude:<span id="latitude"></span></h4>
+                <h4>Longitude:<span id="longitude"></span></h4>
+                <h4>Altitude:<span id="altitude"></span></h4>
+            </div>
+            <h3>Required fields are marked with an asterisk *</h3>
+
+            <div class="form map container">
+                <form method="post" action="https://webdevbasics.net/scripts/demo.php">
+                    <label for="myName">*Name:</label>
+                    <input type="text" name="myName" id="myName" placeholder="your name here">
+                    <label for="myzipCode">*ZIP Code:</label>
+                    <input type="text" name="myZipCode" id="myzipCode" placeholder="your ZIP code here"
+                        oninput="verifyZIP()">
+                    <label for="myEmail">*E-mail:</label>
+                    <input type="email" name="myEmail" id="myEmail" placeholder="your email address here">
+                    <label for="myComments">*Comments:</label>
+                    <textarea name="myComments" id="myComments" rows="2" cols="20"
+                        placeholder="your comments here"></textarea>
+                    <input type="submit" value="SEND TO TELMA" id="submitButton">
+                </form>
+
+                <div id="map">
+
+                </div>
+
+            </div>
+
+        </div>
+        <footer id="footer">
+            <h5>
+                Copyright &copy; 2023 Telma'sTinyTales
+                <a href="mailto:cocain22@amarillocollege.com?subject=Telma'sTinyTails">cocain22@amarillocollege.com</a>
+                This page was last modified on:
+                <script>
+                    document.write(document.lastModified);
+                </script>
+            </h5>
+        </footer>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Telma's Tiny Tails</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Welcome to Telma's Tiny Tails! A kid friendly place 
+    for pet adoption information and basic animal care tips. Explore uplifting pet adoption stories with Telma and friends!">
+    <link rel="stylesheet" href="./stylesheet/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="tttjs.js" defer></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <a href="./index.html">
+                <h1>TELMA'S TINY TAILS</h1>
+            </a>
+        </header>
+    </div>
+    <div class="aside">
+        <a href="./kittens.html" class="aside1">
+            <h3>Kitten Corner</h3>
+        </a>
+        <a href="./puppies.html" class="aside2">
+            <h3>Puppy Pals</h3>
+        </a>
+        <a href="./care.html" class="aside3">
+            <h3>Petcare Tips</h3>
+        </a>
+        <a href="./links.html" class="aside4">
+            <h3>Telma's Links</h3>
+        </a>
+        <a href="./gallery.html" class="aside5">
+            <h3>Telma's Pics</h3>
+        </a>
+        <a href="./contact2.html" class="aside6">
+            <h3>Telma Talk</h3>
+        </a>
+    </div>
+
+    <main>
+        <div class="main">
+            <button id="telmaTip">Telma's Care Tip for Today</button>
+            <div id="tipBox">
+                <div id="tipText"></div>
+            </div>
+            <h2>Telma's Pics</h2>
+            <p>
+                Click on any picture below for a closer look at Telma's tiny friends!<br><br>
+                Please contact us with pics of your tiny friends and we will add them to our gallery!
+            </p>
+
+            <div id="gallery">
+                <img class="thumbnail" src="./images/Hammy.jpg" width="200" height="150"
+                    alt="A hamster in front of a green wheel">
+                <img class="thumbnail" src="./images/Minnie.jpg" width="200" height="150"
+                    alt="A dog with a treat in its mouth">
+                <img class="thumbnail" src="./images/Charlo.jpg" width="200" height="150" alt="A black cat">
+                <img class="thumbnail" src="./images/Chirp.jpg" width="200" height="150" alt="A cat sitting in a chair">
+                <img class="thumbnail" src="./images/TilmaBee.jpg" width="200" height="150"
+                    alt="A dog with bows on its ears">
+                <img class="thumbnail" src="./images/Fritz.jpg" width="200" height="150"
+                    alt="A cat under a christmas tree">
+                <img class="thumbnail" src="./images/Punky.jpg" width="200" height="150"
+                    alt="A black and white dog with a toy">
+            </div>
+
+            <div id="modal">
+                <img id="modalImage" src="modalImage" alt="modal Image">
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        var modal = document.getElementById("modal");
+                        var modalImage = document.getElementById("modalImage");
+                        var thumbnails = document.querySelectorAll(".thumbnail");
+
+                        thumbnails.forEach(thumbnail => {
+                            thumbnail.addEventListener("click", function () {
+                                modalImage.src = thumbnail.src;
+                                modal.style.display = "flex";
+                            });
+                        });
+
+                        modal.addEventListener("click", function () {
+                            modal.style.display = "none";
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+
+
+        <footer id="footer">
+            <h5>
+                Copyright &copy; 2023 Telma'sTinyTales
+                <a href="mailto:cocain22@amarillocollege.com?subject=Telma'sTinyTails">cocain22@amarillocollege.com</a>
+                This page was last modified on:
+                <script>
+                    document.write(document.lastModified);    
+                </script>
+            </h5>
+        </footer>
+
+    </main>
+
+</body>
+
+</html>
