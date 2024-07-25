@@ -103,13 +103,15 @@ function validateComments() {
 }
 
 // Event listener for form submission
-document.getElementById('submitButton').addEventListener('click', function(event) {
-    try {
-        verifyForm();
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('submitButton').addEventListener('click', function(event) {
+        try {
+            verifyForm();
         } catch (error) {
-        errorMessage.innerText = error.message;
-        event.preventDefault();
-    }
+            errorMessage.innerText = error.message;
+            event.preventDefault();
+        }
+    });
 });
 
 // Initialize map
