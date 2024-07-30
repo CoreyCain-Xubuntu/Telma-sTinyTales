@@ -67,7 +67,7 @@ class Pet {
     function getCategory(altText) {
         let lowerAlt = altText.toLowerCase();
         let kittenRegex = /\bkitten(s)?\b|\bcat(s)?\b/;
-        let puppyRegex = /\bpuppy(s)?\b|\bdog(s)?\b/;
+        let puppyRegex = /\bpuppy(ies)?\b|\bdog(s)?\b/;
         
         if (kittenRegex.test(lowerAlt)) {
             return 'kitten';
