@@ -74,6 +74,6 @@ class Pet {
         } else if (puppyRegex.test(lowerAlt)) {
             return 'puppy';
         } else {
-            return ''; // Default category
+            return '';
         }
     }
