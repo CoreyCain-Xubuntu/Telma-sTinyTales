@@ -30,13 +30,17 @@ function getDailyTip(day) {
     }
 }
 
-// Event listener for displaying daily tip
-document.getElementById('telmaTip').addEventListener('click', displayTip);
+// Add event listener once the DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('telmaTip').addEventListener('click', displayTip);
 
-// Event listener for closing tip box
-document.getElementById('tipText').addEventListener('click', () => {
-    document.getElementById('tipBox').style.display = 'none';
+    // Event listener for closing tip box
+    document.getElementById('tipText').addEventListener('click', () => {
+        document.getElementById('tipBox').style.display = 'none';
+    });
 });
+
+
 
 // DOM elements
 const userName = document.getElementById("myName");
@@ -161,4 +165,53 @@ function initMap() {
     updateMapWithUserPosition();
 }
 
+// Adds images to the gallery page
+function initializeGallery() {
+    const galleryImages = [
+        { src: './images/Hammy.jpg', alt: 'A hamster in front of a green wheel.' },
+        { src: './images/Minnie.jpg', alt: 'A dog with a treat in its mouth.' },
+        { src: './images/Charlo.jpg', alt: 'A black cat.' },
+        { src: './images/Chirp.jpg', alt: 'A cat sitting in a chair.' },
+        { src: './images/DogEars.jpg', alt: 'A dog with bows on its ears.' },
+        { src: './images/Fritz.jpg', alt: 'A cat under a christmas tree.' },
+        { src: './images/Punky.jpg', alt: 'A black and white dog with a toy.' },
+        { src: './images/All3.jpeg', alt: 'Three puppies lying down togther.' },
+        { src: './images/BabyKittens.jpg', alt: 'Two kittens lying down with each other.' },
+        { src: './images/Wolfie.jpg', alt: 'A dog with a baby doll in its mouth.' },
+        { src: './images/TeeTee.jpg', alt: 'A white cat meowing.' },
+        { src: './images/TilmaBee2.jpg', alt: 'A puppy in a bee costume.' },
+        { src: './images/TilmaShoe.jpg', alt: 'A puppy looking into the camera.' },
+        { src: './images/TilmaSock.jpg', alt: 'A puppy with a sock in its mouth.' },
+        { src: './images/TinyTilma.jpg', alt: 'A puppy with a toy in its mouth.' },
+        { src: './images/TilmaBee.jpg', alt: 'A puppy in a bee costume.' },
+    ];
+    
+    const galleryContainer = document.getElementById('gallery');
+    const modal = document.getElementById('modal');
+    const modalImage = document.getElementById('modalImage');
 
+    // Create and add thumbnails to the gallery
+    galleryImages.forEach(image => {
+        const img = document.createElement('img');
+        img.className = 'thumbnail';
+        img.src = image.src;
+        img.alt = image.alt;
+        img.width = 200;
+        img.height = 150;
+        img.addEventListener('click', () => {
+            modalImage.src = image.src;
+            modal.style.display = 'flex';
+        });
+        galleryContainer.appendChild(img);
+    });
+
+    // Event listener for closing the modal
+    modal.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+}
+
+// Initialize gallery on DOM content loaded
+document.addEventListener('DOMContentLoaded', () => {
+    initializeGallery();
+});
