@@ -1,1 +1,1 @@
-This is the first website I made. It has form validation, an integrated map using an API, along with some other basic features.
+This is the first website I made. It has form validation, an integrated map using an API, along with some other basic features like a clickable image gallery that makes the image appear to be on Polaroid film.
