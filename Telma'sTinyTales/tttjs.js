@@ -1,4 +1,5 @@
-// Function to display daily pet care tip
+--------------------------------------------------------DAILY TIP SECTION----------------------------------------------------------------
+
 function displayTip() {
     const today = new Date();
     const day = today.getDay();
@@ -8,7 +9,6 @@ function displayTip() {
     document.getElementById('tipBox').style.display = 'flex';
 }
 
-// Helper function to get daily tip based on day
 function getDailyTip(day) {
     switch (day) {
         case 0:
@@ -30,32 +30,24 @@ function getDailyTip(day) {
     }
 }
 
-// Add event listener once the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('telmaTip').addEventListener('click', displayTip);
-
-    // Event listener for closing tip box
     document.getElementById('tipText').addEventListener('click', () => {
         document.getElementById('tipBox').style.display = 'none';
     });
 });
 
-
-
-// DOM elements
+--------------------------------------------------------FORM VALIDATION SECTION----------------------------------------------------------------
 const userName = document.getElementById("myName");
 const userEmail = document.getElementById("myEmail");
 const userComments = document.getElementById("myComments");
 const userZIP = document.getElementById('myzipCode');
 const errorMessage = document.getElementById("error");
 const verificationResult = document.getElementById('verificationResult');
-
-// Regular expressions for validation
 const nameFormat = /^[a-zA-Z ,.'-]+$/;
 const emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const validEmailRegex = /@.*\bgoogle\b/i;
 
-// Function to validate form inputs
 function verifyForm() {
     validateName();
     validateZIP();
@@ -63,14 +55,12 @@ function verifyForm() {
     validateComments();
 }
 
-// Function to validate name
 function validateName() {
     if (!nameFormat.test(userName.value.trim())) {
         throw new Error("Please enter your name.");
     }
 }
 
-// Function to validate ZIP code
 function validateZIP() {
     if (userZIP.value.trim().length < 5) {
         throw new Error("ZIP code must be at least 5 digits.");
@@ -90,7 +80,6 @@ function validateZIP() {
     }
 }
 
-// Function to validate email
 function validateEmail() {
     if (!emailFormat.test(userEmail.value.trim())) {
         throw new Error("Please enter a valid email.");
@@ -99,14 +88,12 @@ function validateEmail() {
     }
 }
 
-// Function to validate comments
 function validateComments() {
     if (userComments.value.trim() === "") {
         throw new Error("Please add a comment.");
     }
 }
 
-// Event listener for form submission
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('submitButton').addEventListener('click', function(event) {
         try {
@@ -118,7 +105,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Initialize map
+--------------------------------------------------------MAP SECTION----------------------------------------------------------------
+
 function initMap() {
     const mapElement = document.getElementById("map");
     const initialCoords = { lat: 35.18872063314348, lng: -101.84683965689786 };  
@@ -128,21 +116,18 @@ function initMap() {
         fullscreenControl: false
     });
 
-    // Initialize marker
     const marker = new google.maps.Marker({
         position: initialCoords,
         map: map,
         title: "Your current position"
     });
 
-    // Get user's current position
     function getUserPosition() {
         return new Promise((resolve, reject) => {
             navigator.geolocation.getCurrentPosition(resolve, reject);
         });
     }
 
-    // Update map and marker with user's position
     async function updateMapWithUserPosition() {
         try {
             const position = await getUserPosition();
@@ -161,11 +146,10 @@ function initMap() {
         }
     }
 
-    // Call updateMapWithUserPosition on init
     updateMapWithUserPosition();
 }
 
-// Adds images to the gallery page
+--------------------------------------------------------GALLERY SECTION----------------------------------------------------------------
 function initializeGallery() {
     const galleryImages = [
         { src: './images/Hammy.jpg', alt: 'A hamster in front of a green wheel.' },
@@ -189,8 +173,7 @@ function initializeGallery() {
     const galleryContainer = document.getElementById('gallery');
     const modal = document.getElementById('modal');
     const modalImage = document.getElementById('modalImage');
-
-    // Create and add thumbnails to the gallery
+ 
     galleryImages.forEach(image => {
         const img = document.createElement('img');
         img.className = 'thumbnail';
@@ -205,13 +188,11 @@ function initializeGallery() {
         galleryContainer.appendChild(img);
     });
 
-    // Event listener for closing the modal
     modal.addEventListener('click', () => {
         modal.style.display = 'none';
     });
 }
 
-// Initialize gallery on DOM content loaded
 document.addEventListener('DOMContentLoaded', () => {
     initializeGallery();
 });
